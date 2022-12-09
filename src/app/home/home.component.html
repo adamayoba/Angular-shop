@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-3">
+      <h1 class="display-1 text-center ">Products</h1>
+      <p class="display-5 text-success text-capitalize text-md-center">
+        {{ProductName ? ProductName : 'No Product Selected'}}
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card col-md-3" *ngFor="let product of products">
+    <img src={{product.picture}} alt={{product.name}} style="width:100%">
+    <h1>{{product.name}}</h1>
+    <p class="price">{{product.specifications.price}}</p>
+    <p class="details">{{product.specifications.color}}</p>
+    <p class="details">{{product.specifications.weight}}</p>
+    <p class="details">{{product.specifications.storage}}</p>
+     <div class="text-center">
+       <button class="btn btn-primary" (click)="addToCart(product.id)" (mouseover)="onMouseOver(product.id)"
+         (mouseout)="onMouseOut()">Add to Cart</button>
+     </div>
+  </div>
+</div>
